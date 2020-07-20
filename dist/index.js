@@ -3475,7 +3475,7 @@ const io = __webpack_require__(1);
 const exec = __webpack_require__(986);
 
 const ROOT_TMP_DIR_PATH = "/tmp";
-const TMP_DIR_PATH = path.join(ROOT_TMP_DIR_PATH, "upload-app-sourcemaps");
+const TMP_DIR_PATH = path.join(ROOT_TMP_DIR_PATH, "upload-app-sourcemap-files");
 
 async function run() {
   const imageTag = core.getInput("imageTag", { required: true });

@@ -6,7 +6,7 @@ const io = require("@actions/io");
 const exec = require("@actions/exec");
 
 const ROOT_TMP_DIR_PATH = "/tmp";
-const TMP_DIR_PATH = path.join(ROOT_TMP_DIR_PATH, "upload-app-sourcemaps");
+const TMP_DIR_PATH = path.join(ROOT_TMP_DIR_PATH, "upload-app-sourcemap-files");
 
 async function run() {
   const imageTag = core.getInput("imageTag", { required: true });
