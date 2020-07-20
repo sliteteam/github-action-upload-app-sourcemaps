@@ -1,0 +1,15 @@
+name: "Upload sourcemaps to Bugsnag"
+description: "Upload App sourcemaps to bugsnag"
+inputs:
+  imageTag:
+    description: "The app docker image tag"
+    required: true
+  assetsPublicPath:
+    description: "The assets public path once deployed"
+    required: true
+  bugsnagApiKey:
+    description: "The BugSnag API key"
+    required: true
+runs:
+  using: "node12"
+  main: "dist/index.js"
