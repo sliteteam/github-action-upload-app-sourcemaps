@@ -3475,7 +3475,7 @@ const io = __webpack_require__(1);
 const exec = __webpack_require__(986);
 
 const ROOT_TMP_DIR_PATH = "/tmp";
-const TMP_DIR_PATH = path.join(ROOT_TMP_DIR_PATH, "upload-app-files");
+const TMP_DIR_PATH = path.join(ROOT_TMP_DIR_PATH, "upload-app-sourcemaps");
 
 async function run() {
   const imageTag = core.getInput("imageTag", { required: true });
@@ -3484,7 +3484,11 @@ async function run() {
   });
   const bugsnagApiKey = core.getInput("bugsnagApiKey", { required: true });
 
-  await io.rmRF(TMP_DIR_PATH);
+  try {
+    await io.rmRF(TMP_DIR_PATH);
+  } catch (e) {
+    console.log("Failed to remove tmp dir, no big deal, moving forward");
+  }
   await io.mkdirP(TMP_DIR_PATH);
 
   try {
