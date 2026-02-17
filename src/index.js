@@ -24,7 +24,7 @@ async function run() {
 
   try {
     await exec.exec(
-      `docker run --rm -v ${ROOT_TMP_DIR_PATH}:${ROOT_TMP_DIR_PATH} ${imageTag} sh -c "cp -R /slite/app/public ${TMP_DIR_PATH} && cp -R /slite/app/sourcemaps ${TMP_DIR_PATH} && cp /slite/app/version.json ${TMP_DIR_PATH}"`
+      `docker run --rm -u root -v ${ROOT_TMP_DIR_PATH}:${ROOT_TMP_DIR_PATH} ${imageTag} sh -c "cp -R /slite/app/public ${TMP_DIR_PATH} && cp -R /slite/app/sourcemaps ${TMP_DIR_PATH} && cp /slite/app/version.json ${TMP_DIR_PATH}"`
     );
   } catch (error) {
     console.error("Error while extracting files from image");
